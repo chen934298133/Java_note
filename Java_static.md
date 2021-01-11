@@ -12,7 +12,7 @@
  - Static代码块
  - Static内部类
 
-## 一、 成员变量
+## 一、 &#127800;成员变量
 
 - Java类分为两种static修饰的静态变量、无static修饰的实例变量。
 - 静态变量可以用于引用所有对象的公共属性如：公司名称，所在大学名称。
@@ -111,7 +111,7 @@ public class Counter {
 ```
 </details>
 
-## 二、 静态成员 
+## 二、 &#127800;静态成员 
 - #### 1.Java中提供了static方法和非static方法。
 	- static方法是**类的方法**，**不需要创建对象**就可以被调用。
 	- 而非static方法是对象的方法，只有对象被**创建出来后**才可以被使用。
@@ -149,13 +149,77 @@ public class Counter {
 	- 这是因为**对象**不需要调用静态方法，如果它是非静态方法，jvm首先要创建对象，然后调用main()方法，这将导致额外的内存分配的问题。
 
 
-## 三、 代码块
+## 三、 &#127800;代码块
 
 - #### static代码块在类中是独立于成员变量和成员函数的代码块的。
 	- **注意： 这些static代码块只会被执行一次**
 
-## 四、 内部类
-- 定义在一个类内部的类即为内部类
-	- 内部类可以声明public、protected、private等访问限制，可以声明 为abstract的供其他内部类或外部类继承与扩展。
+## 四、 &#127800;内部类
+- &#127808; 定义在一个类内部的类即为内部类
+	- 内部类可以声明public、protected、private等访问限制，可以声明为abstract的供其他内部类或外部类继承与扩展。
 	- 声明为static、final的，也可以实现特定的接口。
 	- 外部类按常规的类访问方式使用内部类，唯一的差别是外部类可以访问内部类的所有方法与属性，包括私有方法与属性。
+- #### 1. 外部类如何调用静态内部类中的属性和方法
+	- 外部类可以通过创建静态内部类实例的方法来调用静态内部类的非静态属性和方法
+	- 外部类可以直接通过“ 外部类.内部类.属性（方法）” 的方式直接调用静态内部类中的静态属性和方法
+- #### 2. 静态内部类如何调用外部类的属性和方法
+	- 静态内部类如果要访问**外部的成员变量或者成员方法**，那么必须是**静态的**
+	- 静态内部类可以直接调用外部类的静态属性和方法
+	- 静态内部类可以通过创建外部类实例的方法调用外部类的非静态属性和方法
+
+- #### 3. 如何创建静态内部类实例
+	- 创建静态内部类的时候是不需要将静态内部类的实例对象绑定到外部类的实例对象上
+
+<details>
+<summary>&#127879; 查看代码&#127879;</summary>
+
+```java
+
+public class Static_Class {
+    // 一个实例变量一个静态变量
+    // An instance variable ，A static variable
+    private int a;
+    private static int b{}
+
+    //一个静态方法，一个非静态方法
+    //A static method, a non-static method
+    public static void say(){}
+
+    public void test(){
+        // 在外部类中调用内部类的属性和方法
+        Static_Class.Inner.c = 1; // 可以通过静态内部类的全类名来调用静态内部类的静态属性（外部类名.静态内部类名.属性）
+        Static_Class.Inner.go(); // 可以通过静态内部类的全类名来调用静态内部类的静态方法（外部类名.静态内部类名.方法）
+        // Outer.Inner.walk(); //不能通过类静态内部类的全类名来调用内部类的非静态属性和方法
+        Inner inner = new Inner(); //可以通过创建内部类实例来调用静态内部类的非静态属性和方法
+        inner.d = 1;
+        inner.walk();
+    }
+
+    //静态内部类
+    //Static internal class
+    public static class Inner{
+        static int c;
+        int d;
+
+        // 一个匿名代码块、一个静态代码块
+        //An anonymous block of code, a static block of code
+        {}
+        static{}
+
+        //A static method, a non-static method
+        public static void go(){}
+        public void walk(){
+            // 在静态内部类中调用外部类的属性和方法
+            int f = b; // 可以直接调用外部类的静态属性
+            say(); // 可以直接调用外部类的静态方法
+            // int e = a; 直接调用外部类的非静态属性出错编译出错
+            // test(); 直接调用外部类的非静态方法时编译出错
+            Static_Class outer = new Static_Class();
+            int e = outer.a; // 可以通过创建外部类实例来调用外部类的非静态属性
+            outer.test(); // 可以通过创建外部类实例来调用外部类的非静态方法
+        }
+    }
+}
+
+```
+</details>
