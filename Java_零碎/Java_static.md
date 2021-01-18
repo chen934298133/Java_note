@@ -5,6 +5,7 @@
  - Static成员方法
  - Static代码块
  - Static内部类
+
 **简单说就是：方便在没有创建对象的情况下来进行调用。**
 ## 一、 &#127800;成员变量
 
@@ -14,7 +15,7 @@
 - 实例变量每次实例化新对象时**都分配一个新内存**，单独存储，所以每个对象实例变量的改变不会影响其他对象。
 
 <details>
-<summary>&#127808;**实例变量**&#127808;</summary>
+<summary>&#127808;实例变量&#127808;</summary>
 
 ```java
 class Counter {
@@ -43,7 +44,7 @@ class Counter {
 
 </details>
 <details>
-<summary>&#127808;**静态变量**&#127808;</summary>
+<summary>&#127808;静态变量&#127808;</summary>
 
 ```java
 class Counter2 {
