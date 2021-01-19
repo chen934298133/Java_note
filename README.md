@@ -1,6 +1,14 @@
 ## &#127800; DSLearning &#127800;
 - 线性表
-	- [](DS_Linear/)
+	- [顺序表(数组)](DS_Linear/SequenceList.md)
+	- [链表]()
+	- [栈]()
+	- [队列]()
+- 树
+- 散列表
+- 堆
+- 图
+
 ## &#127800; Java闲杂点 &#127800;
 
 - [Java_static](Java_零碎/Java_static.md)
