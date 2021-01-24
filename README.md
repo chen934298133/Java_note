@@ -1,6 +1,8 @@
 ## &#127800; DSLearning &#127800;
 - 汇总
 	- [顺序表(数组)](DS_Linear/SequenceList.md)
+	- [链表_Node](DS_linear/Node.md)
+	- [链表_单向](DS_linear/LinkList.md)
 	- [链表1-20]()
 	- [栈1-21]()
 	- [队列1-21]()
