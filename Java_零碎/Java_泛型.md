@@ -4,7 +4,7 @@
 
 - Java泛型中的标记符含义：
 	-  E - Element (在集合中使用，因为集合中存放的是元素)
-	-  T - Type（Java 类）
+	-  T - Type（Java 类char、String、int、double……）
 	-  K - Key（键）
 	-  V - Value（值）
 	-  N - Number（数值类型）

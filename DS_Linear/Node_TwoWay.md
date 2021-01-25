@@ -26,14 +26,21 @@
 </table>
 
 <details>
-<summary>&#127808; 结点类 &#127808;</summary>
+<summary>&#127808; View The Node_TwoWay &#127808;</summary>
 
 ```java
-package algorithm.Linear;
+package algorithm.Linear.List_TwoWay;
 
-public class Node<T>{
+public class Node_TwoWay<T> {
     private T item;
-    public Node next;
+    public Node_TwoWay pre;
+    public Node_TwoWay next;
+
+    public Node_TwoWay(T item, Node_TwoWay pre, Node_TwoWay next){
+        this.item = item;
+        this.pre = pre;
+        this.next = next;
+    }
 
     public T getItem() {
         return item;
@@ -42,38 +49,36 @@ public class Node<T>{
     public void setItem(T item) {
         this.item = item;
     }
-
-    public Node(T item, Node next){
-        this.next = next;
-        this.item = item;
-    }
 }
 
 ```
 </details>
 
 <details>
-<summary>&#127808; 生成连边测试&#127808;</summary>
+<summary>&#127808; 生成链表测试 &#127808;</summary>
 
 ```java
 package algorithm.Linear.Test;
 
-import algorithm.Linear.Node;
+import algorithm.Linear.List_TwoWay.Node_TwoWay;
 
-public class NodeTest {
+public class NodeTwoWay_Test {
     public static void main(String[] args){
-        Node<Integer> n1 = new Node<Integer>(1,null);
-        Node<Integer> n2 = new Node<>(2,null);
-        Node<Integer> n3 = new Node<>(3,null);
-        Node<Integer> n4 = new Node<>(4,null);
+        Node_TwoWay n1 = new Node_TwoWay(1,null,null) ;
+        Node_TwoWay n2 = new Node_TwoWay(2,n1,null) ;
+        Node_TwoWay n3 = new Node_TwoWay(3,n2,null) ;
+        Node_TwoWay n4 = new Node_TwoWay(4,n3,null) ;
+        Node_TwoWay n5 = new Node_TwoWay(4,n4,null) ;
 
         n1.next = n2;
         n2.next = n3;
         n3.next = n4;
-        n4.setItem(11);
-        System.out.println(n3.next.getItem());
+        n4.next = n5;
+        System.out.println(n1.next.next.getItem());
+        System.out.println(n5.pre.pre.getItem());
     }
 }
+
 
 ```
 </details>
