@@ -1,13 +1,13 @@
 ## &#127800; DSLearning &#127800;
 - 汇总
 	- [顺序表(数组)](DS_Linear/SequenceList.md)
-	- [链表_NodeOneWay](DS_linear/Node_OneWay.md)
-	- [链表_NodeTwoWay](DS_linear/Node_TwoWay.md)
-	- [链表_Node](DS_linear/Node_OneWay.md)
-	- [链表_单向](DS_linear/LinkList_OneWay.md)
+	- [链表_NodeOneWay](DS_Linear/Node_OneWay.md)
+	- [链表_NodeTwoWay](DS_Linear/Node_TwoWay.md)
+	- [链表_单向](DS_Linear/LinkList_OneWay.md)
 	- [链表_双向](DS_Linear/LinkList_TwoWay.md)
-	- [栈1-21]()
-	- [队列1-21]()
+	- [栈](DS_Linear/Stack.md)
+	- [队列](DS_Linear/Queue.md)
+	- 
 	- [二叉树(插入、获取、删除、查找最值)]()22
 	- [二叉树遍历(前中后层)]()23
 	- 
