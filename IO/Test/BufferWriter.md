@@ -1,0 +1,10 @@
+0写入的内容: BufferWriter
+1写入的内容: BufferWriter
+2写入的内容: BufferWriter
+3写入的内容: BufferWriter
+4写入的内容: BufferWriter
+5写入的内容: BufferWriter
+6写入的内容: BufferWriter
+7写入的内容: BufferWriter
+8写入的内容: BufferWriter
+9写入的内容: BufferWriter
