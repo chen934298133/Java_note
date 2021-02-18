@@ -983,7 +983,255 @@ public class OutputStreamWriter_Test {
 <summary> &#127808; JDK &#127808;</summary>
 
 
-
 </details>
 
 ## &#127800; 11. File流
+- 概念：代表物理盘符中的一个文件或者文件夹
+
+<details>
+<summary> &#127808; File JDK &#127808;</summary>
+
+- java.lang.Object 
+  - java.io.File 
+- 构造方法
+  - File(File parent, String child) 从父抽象路径名和子路径名字符串创建新的 File实例。  
+  - File(String pathname) 通过将给定的路径名字符串转换为抽象路径名来创建新的 File实例。  
+  - File(String parent, String child) 从父路径名字符串和子路径名字符串创建新的 File实例。  
+  - File(URI uri) 通过将给定的 file: URI转换为抽象路径名来创建新的 File实例。  
+- 常用方法
+  - boolean canExecute() 测试应用程序是否可以执行此抽象路径名表示的文件。  
+  - boolean canRead() 测试应用程序是否可以读取由此抽象路径名表示的文件。  
+  - boolean canWrite() 测试应用程序是否可以修改由此抽象路径名表示的文件。  
+  - int compareTo(File pathname) 比较两个抽象的路径名字典。  
+  - boolean createNewFile() 当且仅当具有该名称的文件尚不存在时，原子地创建一个由该抽象路径名命名的新的空文件。  
+  - static File createTempFile(String prefix, String suffix) 在默认临时文件目录中创建一个空文件，使用给定的前缀和后缀生成其名称。  
+  - static File createTempFile(String prefix, String suffix, File directory) 在指定的目录中创建一个新的空文件，使用给定的前缀和后缀字符串生成其名称。  
+  - boolean delete() 删除由此抽象路径名表示的文件或目录。  
+  - void deleteOnExit() 请求在虚拟机终止时删除由此抽象路径名表示的文件或目录。  
+  - boolean equals(Object obj) 测试此抽象路径名与给定对象的相等性。  
+  - boolean exists() 测试此抽象路径名表示的文件或目录是否存在。  
+  - File getAbsoluteFile() 返回此抽象路径名的绝对形式。  
+  - String getAbsolutePath() 返回此抽象路径名的绝对路径名字符串。  
+  - File getCanonicalFile() 返回此抽象路径名的规范形式。  
+  - String getCanonicalPath() 返回此抽象路径名的规范路径名字符串。  
+  - long getFreeSpace() 返回分区未分配的字节数 named此抽象路径名。  
+  - String getName() 返回由此抽象路径名表示的文件或目录的名称。  
+  - String getParent() 返回此抽象路径名的父 null的路径名字符串，如果此路径名未命名为父目录，则返回null。  
+  - File getParentFile() 返回此抽象路径名的父，或抽象路径名 null如果此路径名没有指定父目录。  
+  - String getPath() 将此抽象路径名转换为路径名字符串。  
+  - long getTotalSpace() 通过此抽象路径名返回分区 named的大小。  
+  - long getUsableSpace() 返回上的分区提供给该虚拟机的字节数 named此抽象路径名。 
+  - int hashCode() 计算此抽象路径名的哈希码。  
+  - boolean isAbsolute() 测试这个抽象路径名是否是绝对的。  
+  - boolean isDirectory() 测试此抽象路径名表示的文件是否为目录。  
+  - boolean isFile() 测试此抽象路径名表示的文件是否为普通文件。  
+  - boolean isHidden() 测试此抽象路径名命名的文件是否为隐藏文件。  
+  - long lastModified() 返回此抽象路径名表示的文件上次修改的时间。  
+  - long length() 返回由此抽象路径名表示的文件的长度。  
+  - String[] list() 返回一个字符串数组，命名由此抽象路径名表示的目录中的文件和目录。  
+  - String[] list(FilenameFilter filter) 返回一个字符串数组，命名由此抽象路径名表示的目录中满足指定过滤器的文件和目录。  
+  - File[] listFiles() 返回一个抽象路径名数组，表示由该抽象路径名表示的目录中的文件。  
+  - File[] listFiles(FileFilter filter) 返回一个抽象路径名数组，表示由此抽象路径名表示的满足指定过滤器的目录中的文件和目录。  
+  - File[] listFiles(FilenameFilter filter) 返回一个抽象路径名数组，表示由此抽象路径名表示的满足指定过滤器的目录中的文件和目录。  
+  - static File[] listRoots() 列出可用的文件系统根。  
+  - boolean mkdir() 创建由此抽象路径名命名的目录。  
+  - boolean mkdirs() 创建由此抽象路径名命名的目录，包括任何必需但不存在的父目录。  
+  - boolean renameTo(File dest) 重命名由此抽象路径名表示的文件。  
+  - boolean setExecutable(boolean executable) 为此抽象路径名设置所有者的执行权限的便利方法。  
+  - boolean setExecutable(boolean executable, boolean ownerOnly) 设置该抽象路径名的所有者或每个人的执行权限。  
+  - boolean setLastModified(long time) 设置由此抽象路径名命名的文件或目录的最后修改时间。  
+  - boolean setReadable(boolean readable) 一种方便的方法来设置所有者对此抽象路径名的读取权限。  
+  - boolean setReadable(boolean readable, boolean ownerOnly) 设置此抽象路径名的所有者或每个人的读取权限。  
+  - boolean setReadOnly() 标记由此抽象路径名命名的文件或目录，以便只允许读取操作。 
+  - boolean setWritable(boolean writable) 一种方便的方法来设置所有者对此抽象路径名的写入权限。  
+  - boolean setWritable(boolean writable, boolean ownerOnly) 设置此抽象路径名的所有者或每个人的写入权限。  
+  - Path toPath() 返回从此抽象路径构造的java.nio.file.Path对象。  
+  - String toString() 返回此抽象路径名的路径名字符串。  
+  - URI toURI() 构造一个表示此抽象路径名的 file: URI。  
+ 
+</details>
+
+```java
+package IO.File;
+
+import java.io.File;
+import java.io.FileFilter;
+import java.io.IOException;
+import java.util.Date;
+
+/**
+ * File类的使用
+ * 1. 分隔符
+ * 2. 文件操作
+ * 3. 文件夹操作
+ */
+
+public class File_Test {
+    public static void main (String[] args) throws Exception{
+        // 1. 分隔符
+//        separator();
+
+        // 2. 文件操作
+//        fileOpen();
+
+        // 3.文件夹操作
+        directoryOpe();
+    }
+
+    // 1. 分隔符
+    public static void separator(){
+        System.out.println("路径分隔符: " + File.pathSeparator);
+        System.out.println("名称分隔符: " + File.separator);
+    }
+
+    // 二、 文件操作
+    public static void fileOpen() throws IOException {
+        // 1. 创建文件
+        File file = new File("H:\\Git\\Java_note\\IO\\Test\\test.md");
+        if(!file.exists()){ // 是否存在
+//            File file = new File("H:\\Git\\Java_note\\IO\\Test\\test.md");
+            boolean b = file.createNewFile();
+            System.out.println("文件创建成功: " + b);
+        }
+
+        // 2. 删除文件
+        // 2.1 直接删除
+//        System.out.println("文件删除：" + file.delete());
+        // 2.2 使用jvm退出时删除
+//        file.deleteOnExit();
+
+        // 3. 获取文件信息
+        System.out.println(("获取绝对路径: " + file.getAbsolutePath()));
+        System.out.println(("获取路径: " + file.getPath()));
+        System.out.println(("获取文件名称: " + file.getName()));
+        System.out.println(("获取文件目录: " + file.getParent()));
+        System.out.println(("获取文件长度: " + file.length()));
+        System.out.println(("文件创建时间: " + new Date(file.lastModified()).toLocaleString()));
+
+        // 4. 判断
+        System.out.println(("是否可写: " + file.canWrite()));
+        System.out.println(("是否是文件: " + file.isFile()));
+        System.out.println(("是否隐藏: " + file.isHidden()));
+    }
+
+
+    // 三、文件夹操作
+    public static void directoryOpe() throws Exception{
+        // 1. 创建文件夹
+        File dir = new File("H:\\Git\\Java_note\\IO\\Test\\a\\b\\c");
+        System.out.println((dir.toString()));
+        if(!dir.exists()){
+            //dir.mkdir(); // 只能创建单级目录
+            dir.mkdirs(); // 创建多级目录
+        }
+
+        // 2. 删除文件夹
+        // 2.1 直接删除(必须为空目录)
+//        System.out.println("删除结果：" + dir.delete());
+        // 2.2 使用jvm删除
+//        dir.deleteOnExit();
+
+        // 3. 获取文件夹信息
+        System.out.println(("获取绝对路径: " + dir.getAbsolutePath()));
+        System.out.println(("获取路径: " + dir.getPath()));
+        System.out.println(("获取文件名称: " + dir.getName()));
+        System.out.println(("获取夫目录: " + dir.getParent()));
+        System.out.println(("获取文件长度: " + dir.length()));
+        System.out.println(("文件夹创建时间: " + new Date(dir.lastModified()).toLocaleString()));
+
+        // 4. 判断
+        System.out.println(("是否是文件夹: " + dir.isFile()));
+        System.out.println(("是否隐藏: " + dir.isHidden()));
+
+        // 5. 遍历文件夹
+        System.out.println("----------------------------------------------");
+        File dir2 = new File("H:\\Git\\Java_note\\IO");
+        String[] files = dir2.list();
+        for(String string : files){
+            System.out.println("遍历文件夹: " + string);
+        }
+
+        File[] files01 = dir2.listFiles();
+        for(File file : files01){
+            System.out.println("遍历文件夹: " + file);
+        }
+
+        // 四、 FileFilter接口的使用(过滤器)
+        System.out.println("----------------------------------------------");
+        File dir3 = new File("H:\\Git\\Java_note\\IO\\Test");
+        File[] files2 = dir3.listFiles(new FileFilter(){
+
+            @Override
+            public boolean accept(File pathname){
+                if(pathname.getName().endsWith(".txt")){
+                    return true;
+                }
+                return false;
+            }
+        });
+        for(File file : files2){
+            System.out.println((file.getName()));
+        }
+
+    }
+}
+```
+  
+## &#127800; 12. 递归文件夹
+- 概念：代表物理盘符中的一个文件或者文件夹
+  
+### 12.1 递归遍历文件夹
+```java
+package IO.RecursiveList;
+
+import java.io.File;
+
+public class ListRecursive {
+    public static void main(String[] args){
+        listDir(new File("H:\\Git\\Java_note"));
+
+    }
+
+    public static void listDir(File dir) {
+        File[] files = dir.listFiles();
+        System.out.println(dir.getAbsolutePath());
+        if (files != null && files.length > 0) {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    listDir(file); // 递归
+                } else {
+                    System.out.println(file.getAbsolutePath());
+                }
+            }
+        }
+    }
+}
+```
+  
+### 12.2 递归删除文件夹
+```java
+package IO.RecursiveList;
+
+import java.io.File;
+
+public class ListRecursive {
+    public static void main(String[] args){
+
+        deleteDir(new File("H:\\Git\\Java_note\\IO\\Test\\a"));
+    }
+
+    public static void deleteDir(File dir){
+        File[] files = dir.listFiles();
+        if(files != null && files.length > 0){
+            for(File file : files){
+                if(file.isDirectory()){
+                    deleteDir(file); // 递归
+                }else{
+                    // 删除文件
+                    System.out.println(file.getAbsolutePath() + " 删除状态： " + file.delete());
+                }
+            }
+        }
+    }
+}
+```
