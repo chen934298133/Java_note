@@ -74,7 +74,10 @@
 ## &#127800; Java闲杂点 &#127800;
 
 - [Java_static](Java_零碎/Java_static.md)
-- [Java_static](Java_零碎/Java_this.md)
-- [Java_static](Java_零碎/Java_volatile.md)
-- [Java_static](Java_零碎/Java_for.md)
-- [Java_static](Java_零碎/Java_泛型.md)
+- [Java_this](Java_零碎/Java_this.md)
+- [Java_volatile](Java_零碎/Java_volatile.md)
+- [Java_for](Java_零碎/Java_for.md)
+- [Java_泛型](Java_零碎/Java_泛型.md)
+- [java_反射](Java_零碎/java_反射.md)
+- [Java_转义字符](Java_零碎/Java_转义字符.md)
+- [Java_Lambda](Java_零碎/Java_Lambda.md)

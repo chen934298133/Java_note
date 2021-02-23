@@ -5,14 +5,14 @@
 - 反射机制允许程序在运行时取得任何一个已知名称的`class`的内部信息，包括包括其`modifiers`(修饰符)，`fields`(属性)，`methods`(方法)等，并可于运行时改变 `fields` 内容或调用`methods`。
 - 如此便可以更灵活的编写代码，代码可以在运行时装配，无需在组件之间进行源代码链接，降低代码的耦合度；还有动态代理的实现等等；但是需要注意的是反射使用不当会造成很高的资源消耗！
 
-# &#127800; Java反射机制提供的功能 &#127800;
+# &#127800; 1 Java反射机制提供的功能 &#127800;
 - 在运行时判断任意一个对象所属的类
 - 在运行时构造任意一个类的对象
 - 在运行时判断任意一个类所具有的成员变量和方法在运行时获取泛型信息
 - 在运行时调用任意一个对象的成员变量和方法在运行时处理注解
 - 生成动态代理（AOP）
 
-# &#127800; 静态、动态语言与反射 &#127800;
+# &#127800; 2 静态、动态语言与反射 &#127800;
 ##### Reflection(反射)是Java被视为动态语言的关键，反射机制允许程序在执行期借助于ReflectionAPI取得任何类的内部信息，并能直接操作任意对象的内部属性及方法。 
 
 **优点**：灵活使用反射能让代码更加灵活，比如: 
@@ -24,17 +24,17 @@
 - 反射也会消耗系统的性能，增加复杂性等，需要合理使用。
 - 使用反射基本上是一种解释操作，可以告诉JVM，我们希望做什么并且它满足我们的要求。这类操作总是慢于直接执行相同的操作。
 
-## &#127800; 动态语言
+## &#127800; 2.1 动态语言
 - 一类在运行时可以改变其结构的语言:例如新的函数、对象、甚至代码可以被引进，已有的函数可以被删除或是其他结构上的变化。通俗点说就是在运行时，代码可以根据某些条件改变自身结构。
 - 主要动态语言:Object-C、C#、JavaScript、PHP、Python等
 
-## &#127800; 静态语言
+## &#127800; 2.2 静态语言
 - 与动态语言相对应的，运行时结构不可变的语言就是静态语言。如Java、C++、C。
 - Java不是动态语言，但Java可以称之为“准动态语言 即Java有一定的动态性我们可以利用反射机制获得类似动态语言的特性。Java的动态性让编程的时候更加灵活!
 
 
 
-# &#127800; 理解Class类并获取Class实例&#127800;
+# &#127800; 2.3 理解Class类并获取Class实例&#127800;
 
 <details>
 <summary>&#127808; Person &#127808;</summary>
@@ -289,14 +289,14 @@ class java.lang.Class
 ```
 </details>
 
-# &#127800; 类的加载与ClassLoader &#127800;
+# &#127800; 3 类的加载与ClassLoader &#127800;
 
 ![](https://static01.imgkr.com/temp/8105a6f5d4684940aaa05212c2d54edf.png)
 
 ![](https://static01.imgkr.com/temp/7c4c44f5cff84e65aa2f5eafc445c9fe.png)
 
 
-## &#127800; 类的加载与ClassLoader的理解 
+## &#127800; 3.1 类的加载与ClassLoader的理解 
 
 - 加载:将 class 文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构然后生成一个代表这个类的 `java.lang.Class` 对象
 - 链接:将Java类的二进制代码合并到 JVM 的运行状态之中的过程。
@@ -335,7 +335,7 @@ class A{
 ```
 </details>
 
-## &#127800; 什么时候会发生类初始化
+## &#127800; 3.2 什么时候会发生类初始化
 - 类的主动引用(一定会发生类的初始化)
   - 当虚拟机启动，先初始化 main 方法所在的类
   - new 一个类的对象
@@ -391,7 +391,7 @@ class Son extends Father {
 ```
 </details>
   
-## &#127800; 类加载器的作用
+## &#127800; 3.3 类加载器的作用
 - 类加载的作用: 将class文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构，然后在堆中生成一个代表这个类的 `java.lang.Class` 对象，作为方法区中类数据的访问入口。
 
 - 类缓存: 标准的 JavaSE 类加载器可以按要求查找类，但一旦某个类被加载到类加载器中，它将维 一
@@ -463,9 +463,9 @@ public class Test04 {
 ```
 </details>
   
-# 创建运行时类的对象
+# &#127800; 4 创建运行时类的对象 &#127800;
 
-## 获取运行时类的完整结构
+## &#127800; 4.1 获取运行时类的完整结构
   
 <details>
 <summary>&#127808; Check the details &#127808;</summary>
@@ -538,13 +538,13 @@ public class Test05 {
 ```
 </details>
   
-## 调用运行时类的指定结构
+## &#127800; 4.2 调用运行时类的指定结构
 
-### 有了Class对象，能做什么
+### 4.2.1 有了Class对象，能做什么
 - 创建类的对象:调用Class对象的newInstance()方法 法
   1. 类必须有一个无参数的构造器。
   2. 类的构造器的访问权限需要足够
-#### 思考: 难道没有无参的构造器就不能创建对象了吗?
+### 4.2.1 思考: 难道没有无参的构造器就不能创建对象了吗?
   - 只要在操作的时候明确的调用类中的构造器并将参数传递进去之后，才可以实例化操作
 
 ###### 步骤如下:
@@ -599,7 +599,7 @@ public class Test06 {
 ```
 </details>
   
-### setAccessible
+### &#127800; 4.2.3 setAccessible
 
 - Method和Field、Constructor对象都有setAccessible()方法
 - setAccessible作用是启动和禁用访问安全检查的开关。
@@ -609,7 +609,7 @@ public class Test06 {
 - 参数值为false则指示反射的对象应该实施Java语言访问检查
   
   
-## 性能测试
+## &#127800; 4.2.4 性能测试
   
 <details>
 <summary>&#127808; Check the details &#127808;</summary>
@@ -681,7 +681,7 @@ public class Test10 {
 ```
 </details>
   
-## 反射操作泛型
+## &#127800; 5 反射操作泛型 &#127800; 
 - Java采用泛型擦除的机制来引入泛型，Java中的泛型仅仅是给编译器javac使用的确保数据的安全性和免去强制类型转换问题，但是，一旦编译完成，所有和泛型有关的类型全部擦除
 为了通过反射操作这些类型 Java 新增了 `ParameterizedType`，`GenericArrayType`
 - `TypeVariable` 和 `WildcardType` 几种类型来代表不能被归一到 Class 类中的类型但是又和原始类型齐名的类型
@@ -756,3 +756,108 @@ public class Test08 {
 
 ```
 </details>
+  
+  
+## &#127800; 利用注解和反射完成类和表结构的映射关系&#127800;
+  
+- getAnnotaions
+- getAnnotaion
+
+![](https://static01.imgkr.com/temp/e2c6b6e445e54e51961860398eea94c4.png)
+
+<details>
+<summary>&#127808; Check the details &#127808;</summary>
+  
+```java
+package Reflection;
+
+import java.lang.annotation.*;
+import java.lang.reflect.Field;
+
+// 练习反射操作注解
+public class Test09 {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchFieldException {
+        Class c1 = Class.forName("Reflection.Student1");
+
+        System.out.println(c1.getAnnotations().length);
+        // 通过反射获得注解
+        Annotation[] annotations = c1.getAnnotations();
+        for (Annotation annotation : annotations) {
+            System.out.println(annotation);
+        }
+
+        // 获取注解的value值
+        TableChen tableChen = (TableChen) c1.getAnnotation(TableChen.class);
+        String value = tableChen.value();
+        System.out.println(value);
+
+        // 获取类指定的注解
+        Field f = c1.getDeclaredField("name");
+        FieldChen annotation = f.getAnnotation(FieldChen.class);
+        System.out.println(annotation.columnName());
+        System.out.println(annotation.length());
+        System.out.println(annotation.type());
+    }
+}
+
+@TableChen("db_student")
+class Student1 {
+
+    @FieldChen(columnName = "db_name", type = "varchar", length = 3)
+    private String name;
+    @FieldChen(columnName = "db_id", type = "int", length = 10)
+    private int id;
+    @FieldChen(columnName = "db_age", type = "int", length = 10)
+    private int age;
+
+    public Student1(String name, int id, int age) {
+        this.name = name;
+        this.id = id;
+        this.age = age;
+    }
+
+    public Student1() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
+// 类名的注解
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+@interface TableChen{
+    String value();
+}
+
+// 属性的注解
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.FIELD)
+@interface FieldChen{
+    String columnName();
+    String type();
+    int length();
+}
+```
+  </details>
