@@ -289,23 +289,23 @@ class java.lang.Class
 ```
 </details>
 
-# &#127800; 3 类的加载与ClassLoader &#127800;
+# &#127800; 3 类的加载 与 ClassLoader &#127800;
 
-![](https://static01.imgkr.com/temp/8105a6f5d4684940aaa05212c2d54edf.png)
+![](http://lc-dDwI9S44.cn-n1.lcfile.com/6f381c88c195f747f4fb.png/%E6%A0%88%E5%A0%86%E6%96%B9%E6%B3%95%E5%8C%BA1.png)
 
-![](https://static01.imgkr.com/temp/7c4c44f5cff84e65aa2f5eafc445c9fe.png)
+![](http://lc-dDwI9S44.cn-n1.lcfile.com/e3ec9643f148dc018498.png/%E6%A0%88%E5%A0%86%E6%96%B9%E6%B3%95%E5%8C%BA2.png)
 
 
-## &#127800; 3.1 类的加载与ClassLoader的理解 
+## &#127800; 3.1 类的加载 与 ClassLoader的理解 
 
-- 加载:将 class 文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构然后生成一个代表这个类的 `java.lang.Class` 对象
-- 链接:将Java类的二进制代码合并到 JVM 的运行状态之中的过程。
-  - 验证:确保加载的类信息符合 JVM 规范，没有安全方面的问题
-  - 准备:正式为类变量(static)分配内存并设置类变量默认初始值的阶段，这些内存都将在方法区中进行分配。解析:虚拟机常量池内的符号引用(常量名)替换为直接引用(地址)的的过程。
-- 初始化:
-  - 执行类构造器<clinit>()方法的过程。类构造器<clinit>()方法是由编译期自动收集类中所有类变量的赋值动作和静态代码块中的语句合并产生的。(类构造器是构造类信息的，不是构造该类对象的构造器)。
-  - 当初始化一个类的时候，如果发现其父类还没有进行初始化，则需要先触发其父类的初始化。
-  - 虚拟机会保证一个类的<clinit>()方法在多线程环境中被正确加锁和同步
+- **加载:** 将 `class` 文件字节码内容加载到**内存**中，并将这些**静态数据**转换成**方法区的运行时数据结构**然后生成一个代表这个类的 `java.lang.Class` 对象
+- **链接:** 将Java类的**二进制代码**合并到 **JVM 的运行状态之中**的过程。
+  - 验证: 确保加载的类信息符合 JVM 规范，没有安全方面的问题
+  - 准备: 正式为类变量(static)**分配内存**并**设置类变量默认初始值**的阶段，这些内存都将在方法区中进行分配。解析:虚拟机常量池内的符号引用(常量名)替换为直接引用(地址)的的过程。
+- **初始化:**
+  - 执行类构造器 `<clinit>()` 方法的过程。类构造器 `<clinit>()` 方法是由**编译期自动收集类中所有类变量的赋值动作** 和 **静态代码块中的语句**合并产生的。(类构造器是构造类信息的，不是构造该类对象的构造器)。
+  - 当初始化一个类的时候，如果发现其父类**还没有**进行初始化，则需要**先触发其父类的初始化**。
+  - 虚拟机会保证一个类的 `<clinit>()`方法在多线程环境中被正确加锁和同步
   
 <details>
 <summary>&#127808; Check the details &#127808;</summary>
@@ -392,14 +392,13 @@ class Son extends Father {
 </details>
   
 ## &#127800; 3.3 类加载器的作用
-- 类加载的作用: 将class文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构，然后在堆中生成一个代表这个类的 `java.lang.Class` 对象，作为方法区中类数据的访问入口。
+- **类加载的作用:** 将class文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时数据结构，然后在堆中生成一个代表这个类的 `java.lang.Class` 对象，作为方法区中类数据的访问入口。
 
-- 类缓存: 标准的 JavaSE 类加载器可以按要求查找类，但一旦某个类被加载到类加载器中，它将维 一
-持加载(缓存)一段时间。不过 JVM 垃圾回收机制可以回收这些 Class 对象
+- **类缓存:** 标准的 JavaSE 类加载器可以按要求查找类，但一旦某个类被加载到类加载器中，它将维持加载(缓存)一段时间。不过 JVM 垃圾回收机制可以回收这些 Class 对象
   
-![](https://imgkr2.cn-bj.ufileos.com/59c077df-c6c9-4ffd-8768-a8ca3e98424a.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=nOZ7P3TkJFMcEyiaKV6MhhRjsfM%253D&Expires=1614071149)
+![](http://lc-dDwI9S44.cn-n1.lcfile.com/84c5b116870c866afadc.png/%E7%B1%BB%E5%8A%A0%E8%BD%BD1.png)
 
-![](https://static01.imgkr.com/temp/c25d32714bae49c7aa0830199345e299.png)
+![](http://lc-dDwI9S44.cn-n1.lcfile.com/4bf6b047a5f226d11cd7.png/%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%8A%A0%E8%BD%BD.png)
 
   <details>
 <summary>&#127808; Check the details &#127808;</summary>
@@ -409,15 +408,15 @@ package Reflection;
 
 public class Test04 {
     public static void main(String[] args) throws ClassNotFoundException {
-        // 获取系统类的加载器
+        // 获取系统类的加载器_systemClassLoader
         ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
         System.out.println(systemClassLoader);
 
-        // 获取系统类加载器的父类加载器 --> 扩展类加载器
+        // 获取系统类加载器的父类加载器 --> 扩展类加载器:_ExtClassLoader
         ClassLoader parent = systemClassLoader.getParent();
         System.out.println(parent);
 
-        // 获取扩展类加载器的父类加载器 --> 根加载器(用C++编写的，无法直接获取)
+        // 获取扩展类加载器的父类加载器 --> 根加载器_BootStarpClassLoader(用C++编写的，无法直接获取)
         ClassLoader parent1 = parent.getParent();
         System.out.println(parent1);
 
@@ -763,7 +762,7 @@ public class Test08 {
 - getAnnotaions
 - getAnnotaion
 
-![](https://static01.imgkr.com/temp/e2c6b6e445e54e51961860398eea94c4.png)
+![](http://lc-dDwI9S44.cn-n1.lcfile.com/59acd558be0a8fe782c0.png/%E6%B3%A8%E8%A7%A3%E5%8F%8D%E5%B0%84%E6%98%A0%E5%B0%84.png)
 
 <details>
 <summary>&#127808; Check the details &#127808;</summary>
