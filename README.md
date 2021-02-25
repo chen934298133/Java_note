@@ -15,8 +15,9 @@
 - 堆
 	- [堆(插入，删除)](DS_Heap/Heap.md)
 	- [堆排序](DS_Heap/HeapSort.md)
-	- [最大最小优先队列]()
-	- [索引最小优先队列]()
+	- [最大优先队列](DS_Priority/MaxPriorityQueue.md)
+	- [最小优先队列](DS_Priority/MinPriorityQueue.md)
+	- [索引最小优先队列](DS_Priority/IndexMinPriorityQueue.md)
 - 高级树
 	- [查找树]()
 	- [红黑树]()
